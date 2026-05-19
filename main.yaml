@@ -5,13 +5,12 @@ Resources:
   NetworkStack:
     Type: AWS::CloudFormation::Stack
     Properties:
-      TemplateURL: https://cf-project1-templates-debjani.s3.ap-south-1.amazonaws.com/project1-part1-network.yaml
-      
+      TemplateURL: https://cf-storage-debjani.s3.ap-south-1.amazonaws.com/project1-part1-network.yaml
       
   AppStack:
     Type: AWS::CloudFormation::Stack
     Properties:
-      TemplateURL: https://cf-project1-templates-debjani.s3.ap-south-1.amazonaws.com/project1-part2-app.yaml
+      TemplateURL: https://cf-storage-debjani.s3.ap-south-1.amazonaws.com/project1-part2-app.yaml
       Parameters:
         VpcId: !GetAtt NetworkStack.Outputs.VpcId
         PublicSubnet1: !GetAtt NetworkStack.Outputs.PublicSubnet1
@@ -23,7 +22,7 @@ Resources:
   DBStack:
     Type: AWS::CloudFormation::Stack
     Properties:
-      TemplateURL: https://cf-project1-templates-debjani.s3.ap-south-1.amazonaws.com/project1-part3-db.yaml
+      TemplateURL: https://cf-storage-debjani.s3.ap-south-1.amazonaws.com/project1-part3-db.yaml
       Parameters:
         VpcId: !GetAtt NetworkStack.Outputs.VpcId
         PrivateSubnet1: !GetAtt NetworkStack.Outputs.PrivateSubnet1
